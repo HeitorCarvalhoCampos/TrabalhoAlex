@@ -30,7 +30,18 @@ class Sensores :
             self.umidade = 50 + random.uniform(-1, 1)
 
 class Atuadores :
-    def __init__(self, x, y, z) :
-        self.x = x
-        self.y = y
-        self.z = z
+    def __init__(self) :
+        self.luzes = False
+        self.ar_condicionado = False
+        
+    def atualizar_luzes(self) :
+        if self.movimento:
+            self.luzes = True
+        else:
+            self.luzes = False
+            
+    def atualizar_ar_condicionado(self) :
+        if self.temperatura > 25:
+            self.ar_condicionado = True
+        else:
+            self.ar_condicionado = False
